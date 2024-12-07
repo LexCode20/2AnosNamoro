@@ -1,0 +1,610 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif; /* Fonte mais sofisticada e romântica */
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Fundo suave para o corpo */
+}
+
+/* Seção principal */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('/img/background.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    opacity: 0.9;
+    filter: brightness(70%); /* Fundo mais suave */
+}
+
+/* Sobreposição */
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Conteúdo */
+.hero .content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-family: 'Dancing Script', cursive; /* Fonte cursiva romântica */
+    letter-spacing: 2px;
+    color: #f6c8c8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #fdfdfd;
+    font-family: 'Lora', serif; /* Fonte mais elegante para o texto */
+}
+
+/* Botões */
+.hero .buttons a {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #fff;
+    background: #e91e63;
+    border-radius: 25px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.hero .buttons a:hover {
+    background: #d81b60;
+    transform: scale(1.1);
+}
+
+/* Estilo do lightbox de imagem */
+#image-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fundo escuro */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Certifique-se de que esteja acima de outros elementos */
+}
+
+#image-lightbox.active {
+    display: flex;
+}
+
+#image-lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+/* Estilo do lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fundo escuro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+.lightbox-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.lightbox h2 {
+    margin-bottom: 20px;
+}
+
+.lightbox input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.lightbox button {
+    width: 100%;
+    padding: 10px;
+    background: #e91e63;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.lightbox button:hover {
+    background: #d81b60;
+}
+
+#close-lightbox {
+    margin-top: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#close-lightbox:hover {
+    background: #444;
+}
+
+/* Texto do Lightbox */
+#image-lightbox .image-text {
+    position: absolute;
+    bottom: 10%;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Seção da Galeria */
+.gallery {
+    padding: 50px 20px;
+    background-color: #f9e3e3; /* Cor suave para o fundo */
+    text-align: center;
+}
+
+.gallery h2 {
+    font-size: 2.5rem;
+    color: #d81b60; /* Cor romântica */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-family: 'Dancing Script', cursive; /* Fonte cursiva para o título */
+}
+
+.gallery p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Grid da Galeria */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Imagens */
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para a galeria de vídeos */
+.videos {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Galeria de vídeos */
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center; /* Alinha os itens do grid no centro */
+    max-width: 1200px; /* Define uma largura máxima para os vídeos */
+    margin: 0 auto;
+}
+
+.video-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+}
+
+video {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Inicialmente, esconda a galeria de vídeos */
+.videos.hidden {
+    display: none;
+}
+
+/* Após o login, a galeria de vídeos ficará visível */
+.videos.visible {
+    display: block;
+}
+
+/* Media Queries para Responsividade */
+
+/* Para telas pequenas (mobile) */
+@media (max-width: 767px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero .buttons a {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .gallery h2 {
+        font-size: 2rem;
+    }
+
+    .gallery p {
+        font-size: 1rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Imagens empilhadas em uma coluna */
+    }
+
+    .gallery-grid img {
+        height: 150px; /* Imagens menores */
+    }
+
+    .video-gallery {
+        grid-template-columns: 1fr; /* Vídeos empilhados em uma coluna */
+    }
+
+    .video-item {
+        width: 100%;
+    }
+}
+
+/* Para telas médias (tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .gallery h2 {
+        font-size: 2.2rem;
+    }
+
+    .gallery p {
+        font-size: 1.1rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .video-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* Lightbox para a mensagem especial */
+#special-message-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fundo escuro */
+    display: none; /* Começa escondida */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#special-message-lightbox.active {
+    display: flex; /* Mostra quando ativada */
+}
+
+#special-message-lightbox .message-content {
+    background: url('/img/pergaminho-texture.jpg') no-repeat center center;
+    background-size: cover;
+    width: 80%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 15px;
+    color: #4e3629;
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+#special-message-lightbox h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #e91e63;
+    font-family: 'Dancing Script', cursive;
+}
+
+#special-message-lightbox p {
+    line-height: 1.6;
+}
+
+#close-special-message {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+#close-special-message:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsividade para a lightbox */
+@media (max-width: 767px) {
+    #special-message-lightbox .message-content {
+        width: 90%;
+        padding: 20px;
+    }
+}
+/* Lightbox de Mensagem Especial */
+#special-message-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fundo escuro e opaco */
+    display: none; /* Começa invisível */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Para garantir que fique acima de outros conteúdos */
+}
+
+#special-message-lightbox.active {
+    display: flex; /* Torna a lightbox visível quando ativada */
+}
+
+/* Conteúdo da Mensagem */
+#special-message-lightbox .message-content {
+    background: #f4f1e1; /* Cor de fundo mais clara (tipo pergaminho) */
+    padding: 40px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px; /* Tamanho máximo para a caixa de mensagem */
+    color: #333;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#special-message-lightbox .message-content h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #D6336C; /* Cor suave e romântica */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#special-message-lightbox .message-content p {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+#special-message-lightbox .message-content button {
+    background: #D6336C; /* Cor do botão */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#special-message-lightbox .message-content button:hover {
+    background: #C1325C; /* Cor de hover para o botão */
+}
+#nossa-historia-lightbox {
+    display: none; /* Esconde o lightbox inicialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+}
+/* Estilo básico do Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Estilo do conteúdo interno */
+.lightbox-content {
+    background: linear-gradient(to bottom, #fff, #f7f7f7);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 800px;
+    max-height: 70vh;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.lightbox-content h2 {
+    font-family: 'Pacifico', cursive;
+    color: #d35400;
+    font-size: 2.4em;
+    margin-bottom: 15px;
+}
+
+.lightbox-text {
+    overflow-y: auto;
+    max-height: calc(70vh - 100px);
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+    scrollbar-width: thin;
+    scrollbar-color: #d35400 #f0f0f0;
+}
+
+/* Personalização do scroll */
+.lightbox-text::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lightbox-text::-webkit-scrollbar-thumb {
+    background: #d35400;
+    border-radius: 4px;
+}
+
+.lightbox-text::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+/* Estilo do botão */
+.lightbox-button {
+    background: #d35400;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+    align-self: center;
+}
+
+.lightbox-button:hover {
+    background: #e67e22;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .lightbox-content {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .lightbox-content h2 {
+        font-size: 1.8em;
+    }
+
+    .lightbox-text {
+        font-size: 1em;
+    }
+}
